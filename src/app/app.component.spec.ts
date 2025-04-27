@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderAComponent } from './header-a/header-a.component';
 import { FooterAComponent } from './footer-a/footer-a.component';
+import { Body001Component } from './body-001/body-001.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, HeaderAComponent, FooterAComponent],
+      imports: [AppComponent, FormsModule, HeaderAComponent, FooterAComponent, Body001Component],
     }).compileComponents();
   });
 

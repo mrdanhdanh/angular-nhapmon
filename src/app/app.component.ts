@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderAComponent } from "./header-a/header-a.component";
+import { FormsModule } from '@angular/forms';
+import { HeaderAComponent } from './header-a/header-a.component';
 import { FooterAComponent } from './footer-a/footer-a.component';
+import { Body001Component } from './body-001/body-001.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderAComponent, FooterAComponent],
+  standalone: true,
+  imports: [FormsModule, HeaderAComponent, FooterAComponent, Body001Component],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'my-angular-app';

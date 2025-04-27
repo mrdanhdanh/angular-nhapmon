@@ -1,0 +1,43 @@
+.row {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.btn-chev {
+  padding: 1px 5px;
+  cursor: pointer;
+}
+.btn-chev i {
+  font-size: 20px;
+}
+.bd-row {
+  margin-top: 15px;
+  align-items: left;
+}
+.custom-grp {
+  position: relative;
+  display: inline-flex;
+  margin-left: 10px;
+}
+.cus-id-drop {
+  position: absolute;
+  top: 100%; /* Hiển thị ngay dưới phần tử cha */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  width: calc(100% - 30px); /* Độ rộng khớp với input */
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cus-id-drop li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cus-id-drop li:hover {
+  background-color: #97d5de;
+}

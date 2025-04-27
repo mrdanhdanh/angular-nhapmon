@@ -1,0 +1,23 @@
+<div class="body-container">
+  <!-- Dòng 1 -->
+  <div class="bd-row">
+    <label for="customer-id">Khách hàng </label>
+    <div class="custom-grp">
+      <input type="text" id="customer-id" [(ngModel)]="selectedCustomer" placeholder="Tên khách hàng">
+      <button class="btn btn-select btn-chev" (click)="customerDropdown()">
+        <i class="bi bi-chevron-down"></i>
+      </button>
+      <ul class="dropdown-menu cus-id-drop" [class.show]="isDropdownOpen">
+        <li *ngFor="let customer of customers" (click)="selectCustomer(customer)">
+          {{ customer }}
+        </li>
+      </ul>
+    </div>
+    <label for="customer-status" id="customer-status">None</label>
+  </div>
+
+  <!-- Dòng 2 -->
+  <div class="bd-row">
+    <input type="text" id="date-input" [(ngModel)]="dateInput" placeholder="____年__月" (keypress)="allowOnlyNumbers($event)">
+  </div>
+</div>
