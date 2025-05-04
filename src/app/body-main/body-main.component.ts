@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { DynamicLoaderService } from '../shared/dynamic-loader.service';
-import { DynamicLoaderDirective } from '../shared/dynamic-loader.directive';
 
 @Component({
   selector: 'app-body-main',
@@ -8,8 +7,6 @@ import { DynamicLoaderDirective } from '../shared/dynamic-loader.directive';
   styleUrls: ['./body-main.component.scss']
 })
 export class BodyMainComponent implements OnInit {
-  @ViewChild(DynamicLoaderDirective, { static: false })
-  appContainBody!: DynamicLoaderDirective;
   @ViewChild('appContainBody', { read: ViewContainerRef, static: false }) appContain!: ViewContainerRef;
 
   constructor(private dynamicLoaderService: DynamicLoaderService,
@@ -17,15 +14,19 @@ export class BodyMainComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.dynamicLoaderService.loadComponent$.subscribe((componentName) => {
+      if (componentName === 'none') {
+        this.appContain.clear();
+        return;
+      }
+      // Load the component dynamically based on the name
       const component = this.getComponentByName(componentName);
       if (component) {
-        // const viewContainerRef = this.appContainBody.viewContainerRef;
-        // viewContainerRef.clear();
-        //const componentFactory = this.appContainBody.resolveComponentFactory(component);
-        //viewContainerRef.createComponent(componentFactory);
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
         this.appContain.clear();
         this.appContain.createComponent(componentFactory);
+      }
+      else {
+        console.error(`Component ${componentName} not found.`);
       }
     });
   }
