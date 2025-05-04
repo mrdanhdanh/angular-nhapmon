@@ -9,11 +9,20 @@
           <li><a href="#" class="dropdown-item">Link 3</a></li>
         </ul>
       </div>
-  
       <!-- Button 2 -->
       <button class="btn btn-nav">Button 2</button>
-  
+
       <!-- Button 3 -->
       <button class="btn btn-nav">Button 3</button>
+
+      <!-- Selection box -->
+      <select class="form-select" (change)="onOptionChange($event)">
+        <option value="none">---</option>
+        <option value="Body1">Body1</option>
+        <option value="Body2">Body2</option>
+      </select>
     </div>
+    <div class="container">
+      <div class="dynamic-container" #appContain></div>
+      </div>
   </nav>

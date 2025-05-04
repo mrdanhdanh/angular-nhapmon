@@ -3,12 +3,12 @@
   <div class="bd-row">
     <label for="customer-id">Khách hàng </label>
     <div class="custom-grp">
-      <input type="text" id="customer-id" [(ngModel)]="selectedCustomer" placeholder="Tên khách hàng">
+      <input type="text" id="customer-id" [(ngModel)]="selectedCustomer" placeholder="ID khách hàng" (keydown.enter)="checkCustomer()">
       <button class="btn btn-select btn-chev" (click)="customerDropdown()">
         <i class="bi bi-chevron-down"></i>
       </button>
-      <ul class="dropdown-menu cus-id-drop" [class.show]="isDropdownOpen">
-        <li *ngFor="let customer of customers" (click)="selectCustomer(customer)">
+      <ul class="dropdown-menu cus-id-drop" [class.show]="isCusDownOpen">
+        <li *ngFor="let customer of customers" (click)="selectCustomer(customer)" [ngClass]="{'highlight': customer === selectedCustomer}">
           {{ customer }}
         </li>
       </ul>

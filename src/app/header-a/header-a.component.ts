@@ -1,4 +1,5 @@
-import { Component,  HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { DynamicLoaderService } from '../shared/dynamic-loader.service';
 
 @Component({
   selector: 'app-header-a',
@@ -9,6 +10,9 @@ import { Component,  HostListener } from '@angular/core';
 export class HeaderAComponent {
   title = 'Header A';
   isDropdownOpen = false;
+  selectedOption: string = 'none';
+
+  constructor(private dynamicLoaderService: DynamicLoaderService) {}
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
@@ -21,11 +25,20 @@ export class HeaderAComponent {
       this.isDropdownOpen = false;
     }
   }
+
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {
     if (event.ctrlKey && event.shiftKey && event.key === 'M') {
       event.preventDefault(); // Ngăn trình duyệt xử lý hotkey
       this.toggleDropdown(); // Mở dropdown menu
     }
+  }
+
+  onOptionChange(event: Event) {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.selectedOption = selectedValue;
+    alert(`Selected option: ${selectedValue}`); // Hiển thị thông báo dạng popup
+    // Notify the service to load the selected component
+    this.dynamicLoaderService.loadComponent(selectedValue);
   }
 }

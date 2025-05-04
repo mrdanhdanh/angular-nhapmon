@@ -29,6 +29,8 @@
   padding: 5px 0;
   margin: 0;
   width: calc(100% - 30px); /* Độ rộng khớp với input */
+  max-height: 107px; /* Hiển thị tối đa 3 phần tử (giả sử mỗi phần tử cao ~34px) */
+  overflow-y: auto; /* Thêm thanh cuộn dọc nếu vượt quá chiều cao */
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -40,4 +42,9 @@
 
 .cus-id-drop li:hover {
   background-color: #97d5de;
+}
+
+.highlight {
+  background-color: #84f8e3;
+  font-weight: bold; /* Tùy chọn: làm chữ đậm */
 }

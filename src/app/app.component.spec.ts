@@ -4,11 +4,14 @@ import { AppComponent } from './app.component';
 import { HeaderAComponent } from './header-a/header-a.component';
 import { FooterAComponent } from './footer-a/footer-a.component';
 import { Body001Component } from './body-001/body-001.component';
+import { Body002Component } from './body-002/body-002.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, FormsModule, HeaderAComponent, FooterAComponent, Body001Component],
+      imports: [AppComponent, FormsModule, HeaderAComponent, FooterAComponent
+        , Body001Component
+        , Body002Component],
     }).compileComponents();
   });
 
