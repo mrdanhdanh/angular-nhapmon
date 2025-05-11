@@ -1,0 +1,106 @@
+/* Styling for body-003 component */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+div {
+    margin: 10px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  width: 150px;
+}
+
+input, select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+/* Ensure the dropdown options appear below the select element */
+select {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: Add styling for the dropdown options */
+select option {
+  z-index: 2;
+  top : 100%;
+  left: 0;
+}
+
+datepicker {
+  margin: 10px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Ensure the dropdown appears below its parent item */
+.dropdown-container {
+  position: relative; /* Ensure the parent container is positioned */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; /* Position the dropdown right below the select */
+  left: 0;
+  z-index: 2; /* Ensure it appears above other elements */
+  background-color: white; /* Optional: Add background for better visibility */
+  border: 1px solid #ccc; /* Optional: Add border for better visibility */
+  border-radius: 4px; /* Optional: Add border radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  label {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  input, select {
+    width: 100%;
+  }
+}

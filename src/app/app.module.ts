@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { HeaderAComponent } from './header-a/header-a.component';
 import { Body001Component } from './body-001/body-001.component';
-import { DynamicLoaderDirective } from './shared/dynamic-loader.directive';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     HeaderAComponent,
-    Body001Component,
-    DynamicLoaderDirective // Moved here as it is standalone
+    Body001Component
   ],
   declarations: [
     // Add your components, directives, or pipes here

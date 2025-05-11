@@ -36,6 +36,7 @@ export class BodyMainComponent implements OnInit {
     const components: { [key: string]: any } = {
       'Body1': require('../body-001/body-001.component').Body001Component,
       'Body2': require('../body-002/body-002.component').Body002Component,
+      'Body3': require('../body-003/body-003.component').Body003Component,
     };
     return components[name] || null;
   }

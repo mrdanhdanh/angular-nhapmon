@@ -1,0 +1,43 @@
+<p>body-003 works!</p>
+
+<div *ngFor="let item of searchItems">
+    <ng-container [ngSwitch]="item.TypeID">
+        <div *ngIf="item.BoundaryKB !== '1'">
+            <!-- Textbox -->
+            <div *ngSwitchCase="'01'">
+                <label [for]="item.ItemID">{{ item.Name }}</label>
+                <input [id]="item.ItemID" type="text" />
+            </div>
+
+            <!-- Date Picker -->
+            <div *ngSwitchCase="'02'">
+                <label [for]="item.ItemID">{{ item.Name }}</label>
+                <input [id]="item.ItemID" type="date" />
+            </div>
+
+            <!-- Dropdown List -->
+            <div *ngSwitchCase="'03'">
+                <label [for]="item.ItemID">{{ item.Name }}</label>
+                <select [id]="item.ItemID">
+                    <option value="none">---</option> <!-- Default option -->
+                    <ng-container *ngFor="let data of itemData">
+                        <option *ngIf="data.ItemID === item.ItemID" [value]="data.No">
+                            {{ data.ItemName }}
+                        </option>
+                    </ng-container>
+                </select>
+            </div>
+        </div>
+
+        <!-- BoundaryKB Start and End -->
+        <div *ngIf="item.BoundaryKB === '1'">
+            <div *ngSwitchCase="'01'">
+                <label [for]="item.ItemID + 'Start'">{{ item.Name }}</label>
+                <input [id]="item.ItemID + 'Start'" type="text" />
+                ~
+                <input [id]="item.ItemID + 'End'" type="text" />
+            </div>
+
+        </div>
+    </ng-container>
+</div>
